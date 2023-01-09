@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "prettier": "yarn lint:prettier",
+    "prettier:fix": "prettier --write --list-different .",
+    "eslint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "eslint:fix": "yarn eslint --fix",
+    "lint": "next lint",
+    "lint:fix": "yarn prettier:fix && yarn eslint:fix"
   },
   "dependencies": {
     "microcms-js-sdk": "^2.3.2",
@@ -15,6 +20,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.1.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",

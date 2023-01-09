@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/image";
 
 export const Avatar = () => {
   return (
@@ -9,5 +9,5 @@ export const Avatar = () => {
       height={151}
       alt="my avatar"
     />
-  )
-}
+  );
+};

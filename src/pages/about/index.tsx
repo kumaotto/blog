@@ -9,9 +9,9 @@ const About: NextPage = () => {
       <Header />
       <ContentWrapper>
         <div className="mt-10 sm:flex mx-auto lg:px-48 md:px-32">
-          <Avatar/>
+          <Avatar />
           <div className="flex-auto sm:ml-10 text-center sm:text-left">
-            <h1 className='text-4xl text-gray-800'>kumaotto</h1>
+            <h1 className="text-4xl text-gray-800">kumaotto</h1>
             <p>Kumi Komaki</p>
             <br />
             <p className="mb-2">Job: Web application developer</p>
@@ -25,7 +25,7 @@ const About: NextPage = () => {
         </div>
       </ContentWrapper>
     </>
-  )
-}
+  );
+};
 
 export default About;
