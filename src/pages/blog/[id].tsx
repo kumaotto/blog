@@ -8,12 +8,12 @@ import {
   InferGetStaticPropsType,
 } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import { Blog } from "types/blog";
+import { Article } from "types/blog";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { contents } = await client.get({ endpoint: "blogs" });
 
-  const paths = contents.map((content: Blog) => `/blog/${content.id}`);
+  const paths = contents.map((content: Article) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
 
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 };
 
 type Props = {
-  blog: Blog;
+  blog: Article;
 };
 
 const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
