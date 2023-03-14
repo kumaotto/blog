@@ -25,6 +25,9 @@ jobs:
                 aws-region: ap-northeast-1
 
             - name: Build
+              env:
+                SERVICE_DOMAIN: ${{ secrets.SERVICE_DOMAIN }}
+                API_KEY: ${{ secrets.API_KEY }}
               run: |
                 yarn install 
                 yarn build
