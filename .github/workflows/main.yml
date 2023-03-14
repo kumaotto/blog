@@ -33,4 +33,4 @@ jobs:
                 yarn build
             - name:  Contents sync to s3
               run: |
-                aws s3 sync ./next ${{ secrets.S3_PATH }} 
+                aws s3 sync .next ${{ secrets.S3_PATH }} 
