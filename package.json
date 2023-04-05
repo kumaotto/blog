@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:out": "next build && next export",
     "start": "next start",
     "prettier": "yarn lint:prettier",
     "prettier:fix": "prettier --write --list-different .",
