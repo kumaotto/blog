@@ -17,7 +17,7 @@ const About: NextPage = () => {
             <p className="mb-2">Job: Web developer</p>
             <p className="mb-2">Skills: Python, Java, JavaScript, TypeScript</p>
             <p>Qualifications</p>
-            <ul className="list-disc pl-5 text-left w-2/3 sm:w-auto mx-auto sm:mx-0">
+            <ul className="list-disc pl-5 text-left w-1/3 sm:w-auto mx-auto sm:mx-0">
               <li>2023 Mar. AWS Certified Solutions Architect - Associate</li>
               <li>2023 Feb. AWS Certified Cloud Practitioner</li>
               <li>2022 Dec. 応用情報技術者試験</li>
