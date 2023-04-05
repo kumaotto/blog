@@ -8,7 +8,7 @@ const About: NextPage = () => {
     <>
       <Header />
       <ContentWrapper>
-        <div className="mt-10 sm:flex mx-auto lg:px-48 md:px-32">
+        <div className="mt-10 sm:flex mx-auto lg:px-32 md:px-32">
           <Avatar />
           <div className="flex-auto sm:ml-10 text-center sm:text-left">
             <h1 className="text-4xl text-gray-800">kumaotto</h1>
