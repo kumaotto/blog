@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   context
 ) => {
   const id = context.params?.id;
-  const data = await client.get({ endpoint: "blogs", contentId: id });
+  const data = await client.get<Article>({ endpoint: "blogs", contentId: id });
 
   return {
     props: {
@@ -34,7 +34,7 @@ type Props = {
   blog: Article;
 };
 
-const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const BlogId: NextPage<Props> = ({
   blog,
 }: Props) => {
   return (
