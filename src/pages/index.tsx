@@ -23,7 +23,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <ContentWrapper>
         <div className="text-center pt-8">
           <h1 className="text-4xl mb-4 font-bold text-gray-800">kumaotto</h1>
-          <Avatar />
+          <Avatar/>
           <h2 className="text-2xl font-bold text-gray-800 mt-10 text-left">
             Articles
           </h2>
