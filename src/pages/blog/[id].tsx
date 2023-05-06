@@ -46,7 +46,7 @@ const BlogId: NextPage<Props> = ({
         <ContentWrapper>
           <main className="mb-20">
             <h1 className="text-4xl mt-10">{blog.title}</h1>
-            <div className="flex mt-2">
+            <div className="sm:flex sm:mt-2 text-neutral-500">
               <p className="mr-4">公開日: {format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})}</p>
               {isUpdated &&
                 <p>更新日: {format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>

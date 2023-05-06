@@ -32,8 +32,8 @@ const Home = ({
               {blogs.map((blog) => (
                 <li key={blog.id} className="rounded-md border-2 py-2.5">
                   <Link href={`/blog/${blog.id}`}>
-                    <div className="flex items-center justify-start">
-                      <p className="pl-5 pr-7 text-neutral-500">{format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>
+                    <div className="text-left pl-3 sm:flex sm:items-center sm:justify-start sm:pl-5">
+                      <p className="pr-7 text-neutral-500">{format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>
                       <p>{blog.title}</p>
                     </div>
                   </Link>

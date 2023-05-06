@@ -6,7 +6,7 @@ const About: NextPage = () => {
   return (
     <>
       <ContentWrapper>
-        <div className="flex">
+        <div className="flex mb-20">
           <div className="mt-10 sm:flex mx-auto justify-center lg:px-32 md:px-32">
             <Avatar />
             <div className="flex-auto w-fit sm:ml-10 text-center sm:text-left">
