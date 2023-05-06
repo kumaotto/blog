@@ -6,6 +6,8 @@ import { Avatar } from "components/image/Avatar";
 import { ContentWrapper } from "components/ContentWrapper";
 import { Suspense } from "react";
 import Loading from "components/common/Loading/Loading";
+import { format } from "date-fns";
+import { ja } from "date-fns/locale";
 
 type Props = {
   blogs: Article[];
@@ -29,7 +31,12 @@ const Home = ({
             <ul className="mt-4">
               {blogs.map((blog) => (
                 <li key={blog.id} className="rounded-md border-2 py-2.5">
-                  <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+                  <Link href={`/blog/${blog.id}`}>
+                    <div className="flex items-center justify-start">
+                      <p className="pl-5 pr-7 text-neutral-500">{format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>
+                      <p>{blog.title}</p>
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>
