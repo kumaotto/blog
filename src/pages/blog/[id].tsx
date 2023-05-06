@@ -1,13 +1,15 @@
 import { ContentWrapper } from "components/ContentWrapper";
-import Header from "components/header/Header";
+import Loading from "components/common/Loading/Loading";
+import { format } from "date-fns";
+import { ja } from "date-fns/locale";
 import { client } from "libs/client";
 import {
   GetStaticPaths,
   GetStaticProps,
   NextPage,
-  InferGetStaticPropsType,
 } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { Suspense } from "react";
 import { Article } from "types/blog";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -37,25 +39,32 @@ type Props = {
 const BlogId: NextPage<Props> = ({
   blog,
 }: Props) => {
+  const isUpdated = blog.updatedAt > blog.publishedAt
   return (
     <>
-      <Header />
-      <ContentWrapper>
-        <main>
-          <h1 className="text-4xl mt-10">{blog.title}</h1>
-          <p className="mt-2">{blog.publishedAt}</p>
-          <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
-            {blog.category.name}
-          </p>
+      <Suspense fallback={<Loading />}>
+        <ContentWrapper>
+          <main className="mb-20">
+            <h1 className="text-4xl mt-10">{blog.title}</h1>
+            <div className="sm:flex sm:mt-2 text-neutral-500">
+              <p className="mr-4">公開日: {format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})}</p>
+              {isUpdated &&
+                <p>更新日: {format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>
+              }
+            </div>
+            <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
+              {blog.category.name}
+            </p>
 
-          <div
-            className="mt-5"
-            dangerouslySetInnerHTML={{
-              __html: `${blog.content}`,
-            }}
-          />
-        </main>
-      </ContentWrapper>
+            <div
+              className="blogContent mt-5"
+              dangerouslySetInnerHTML={{
+                __html: `${blog.content}`,
+              }}
+            />
+          </main>
+        </ContentWrapper>
+      </Suspense>
     </>
   );
 };

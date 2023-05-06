@@ -1,14 +1,12 @@
 import { ContentWrapper } from "components/ContentWrapper";
-import Header from "components/header/Header";
 import { Avatar } from "components/image/Avatar";
 import { NextPage } from "next";
 
 const About: NextPage = () => {
   return (
     <>
-      <Header />
       <ContentWrapper>
-        <div className="flex">
+        <div className="flex mb-20">
           <div className="mt-10 sm:flex mx-auto justify-center lg:px-32 md:px-32">
             <Avatar />
             <div className="flex-auto w-fit sm:ml-10 text-center sm:text-left">
