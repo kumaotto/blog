@@ -33,6 +33,15 @@ a {
     a {
       @apply text-blue-600
     }
+    ol {
+      @apply ml-6 mt-6 list-disc
+    }
+    ul {
+      @apply ml-6 mt-6 list-decimal
+    }
+    p {
+      @apply leading-8
+    }
   }
 }
 
