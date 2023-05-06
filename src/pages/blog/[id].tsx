@@ -1,4 +1,6 @@
 import { ContentWrapper } from "components/ContentWrapper";
+import { format } from "date-fns";
+import { ja } from "date-fns/locale";
 import { client } from "libs/client";
 import {
   GetStaticPaths,
@@ -40,7 +42,7 @@ const BlogId: NextPage<Props> = ({
       <ContentWrapper>
         <main className="mb-20">
           <h1 className="text-4xl mt-10">{blog.title}</h1>
-          <p className="mt-2">{blog.publishedAt}</p>
+          <p className="mt-2">{format(new Date(blog.publishedAt), 'yyyy年M月d日 HH:mm', {locale: ja})}</p>
           <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
             {blog.category.name}
           </p>
