@@ -19,6 +19,20 @@ a {
   box-sizing: border-box;
 }
 
+@layer base {
+  .blogContent {
+    h1 {
+      @apply text-3xl font-bold mt-8 mb-4;
+    }
+    h2 {
+      @apply mb-0  text-xl sm:text-2xl font-bold;
+    }
+    h3 {
+      @apply text-xl sm:text-lg;
+    }
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
