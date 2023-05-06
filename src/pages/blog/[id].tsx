@@ -1,4 +1,5 @@
 import { ContentWrapper } from "components/ContentWrapper";
+import Footer from "components/footer/Footer";
 import Header from "components/header/Header";
 import { client } from "libs/client";
 import {
@@ -41,7 +42,7 @@ const BlogId: NextPage<Props> = ({
     <>
       <Header />
       <ContentWrapper>
-        <main>
+        <main className="mb-20">
           <h1 className="text-4xl mt-10">{blog.title}</h1>
           <p className="mt-2">{blog.publishedAt}</p>
           <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
@@ -49,13 +50,14 @@ const BlogId: NextPage<Props> = ({
           </p>
 
           <div
-            className="mt-5"
+            className="blogContent mt-5"
             dangerouslySetInnerHTML={{
               __html: `${blog.content}`,
             }}
           />
         </main>
       </ContentWrapper>
+      <Footer />
     </>
   );
 };

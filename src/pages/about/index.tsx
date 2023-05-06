@@ -1,4 +1,5 @@
 import { ContentWrapper } from "components/ContentWrapper";
+import Footer from "components/footer/Footer";
 import Header from "components/header/Header";
 import { Avatar } from "components/image/Avatar";
 import { NextPage } from "next";
@@ -29,6 +30,7 @@ const About: NextPage = () => {
           </div>
         </div>
       </ContentWrapper>
+      <Footer />
     </>
   );
 };
