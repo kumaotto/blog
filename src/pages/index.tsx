@@ -7,13 +7,14 @@ import Link from "next/link";
 import { Avatar } from "components/image/Avatar";
 import Header from "components/header/Header";
 import { ContentWrapper } from "components/ContentWrapper";
+import Footer from "components/footer/Footer";
 
 type Props = {
   blogs: Article[];
   categories: Category[];
 };
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const Home = ({
   blogs,
   categories,
 }: Props) => {
@@ -36,6 +37,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </ul>
         </div>
       </ContentWrapper>
+      <Footer />
     </>
   );
 };
