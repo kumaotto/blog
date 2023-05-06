@@ -1,13 +1,10 @@
 import { ContentWrapper } from "components/ContentWrapper";
-import Footer from "components/footer/Footer";
-import Header from "components/header/Header";
 import { Avatar } from "components/image/Avatar";
 import { NextPage } from "next";
 
 const About: NextPage = () => {
   return (
     <>
-      <Header />
       <ContentWrapper>
         <div className="flex">
           <div className="mt-10 sm:flex mx-auto justify-center lg:px-32 md:px-32">
@@ -30,7 +27,6 @@ const About: NextPage = () => {
           </div>
         </div>
       </ContentWrapper>
-      <Footer />
     </>
   );
 };

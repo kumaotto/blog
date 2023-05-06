@@ -5,9 +5,7 @@ import { client } from "libs/client";
 import { Article, Category } from "types/blog";
 import Link from "next/link";
 import { Avatar } from "components/image/Avatar";
-import Header from "components/header/Header";
 import { ContentWrapper } from "components/ContentWrapper";
-import Footer from "components/footer/Footer";
 
 type Props = {
   blogs: Article[];
@@ -20,7 +18,6 @@ const Home = ({
 }: Props) => {
   return (
     <>
-      <Header />
       <ContentWrapper>
         <div className="text-center pt-8">
           <h1 className="text-4xl mb-4 font-bold text-gray-800">kumaotto</h1>
@@ -37,7 +34,6 @@ const Home = ({
           </ul>
         </div>
       </ContentWrapper>
-      <Footer />
     </>
   );
 };

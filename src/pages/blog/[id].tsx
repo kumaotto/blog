@@ -1,12 +1,9 @@
 import { ContentWrapper } from "components/ContentWrapper";
-import Footer from "components/footer/Footer";
-import Header from "components/header/Header";
 import { client } from "libs/client";
 import {
   GetStaticPaths,
   GetStaticProps,
   NextPage,
-  InferGetStaticPropsType,
 } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { Article } from "types/blog";
@@ -40,7 +37,6 @@ const BlogId: NextPage<Props> = ({
 }: Props) => {
   return (
     <>
-      <Header />
       <ContentWrapper>
         <main className="mb-20">
           <h1 className="text-4xl mt-10">{blog.title}</h1>
@@ -57,7 +53,6 @@ const BlogId: NextPage<Props> = ({
           />
         </main>
       </ContentWrapper>
-      <Footer />
     </>
   );
 };
