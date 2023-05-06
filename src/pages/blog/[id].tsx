@@ -37,12 +37,18 @@ type Props = {
 const BlogId: NextPage<Props> = ({
   blog,
 }: Props) => {
+  const isUpdated = blog.updatedAt > blog.publishedAt
   return (
     <>
       <ContentWrapper>
         <main className="mb-20">
           <h1 className="text-4xl mt-10">{blog.title}</h1>
-          <p className="mt-2">{format(new Date(blog.publishedAt), 'yyyy年M月d日 HH:mm', {locale: ja})}</p>
+          <div className="flex mt-2">
+            <p className="mr-4">公開日: {format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})}</p>
+            {isUpdated &&
+              <p>更新日: {format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>
+            }
+          </div>
           <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
             {blog.category.name}
           </p>
