@@ -39,7 +39,12 @@ type Props = {
 const BlogId: NextPage<Props> = ({
   blog,
 }: Props) => {
-  const isUpdated = blog.updatedAt > blog.publishedAt
+  
+  const publish_date: string = format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})
+  const updated_date: string = format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})
+  
+  const isUpdated: Boolean = updated_date > publish_date
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -47,9 +52,9 @@ const BlogId: NextPage<Props> = ({
           <main className="mb-20">
             <h1 className="text-4xl mt-10">{blog.title}</h1>
             <div className="sm:flex sm:mt-2 text-neutral-500">
-              <p className="mr-4">公開日: {format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})}</p>
+              <p className="mr-4">公開日: {publish_date}</p>
               {isUpdated &&
-                <p>更新日: {format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})}</p>
+                <p>更新日: {updated_date}</p>
               }
             </div>
             <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
