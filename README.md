@@ -1,4 +1,5 @@
 # mysite
+This is kumaotto site.
 
 ## Getting Started
 
