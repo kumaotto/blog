@@ -49,8 +49,20 @@ const BlogId: NextPage<Props> = ({
     <>
       <Suspense fallback={<Loading />}>
         <ContentWrapper>
-          <main className="mb-20">
-            <h1 className="text-4xl mt-10">{blog.title}</h1>
+          <main className="mb-20 sm:w-9/12 sm:mx-auto">
+            {blog.eyecatch &&
+              <img
+                src={blog.eyecatch.url}
+                className="sm:mt-10 mt-5"
+                style={{
+                  width: '100%',
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
+                alt="ブログアイキャッチ画像"
+              />
+            }
+            <h1 className="text-4xl sm:mt-7 mt-5 mb-2 sm:mb-0">{blog.title}</h1>
             <div className="sm:flex sm:mt-2 text-neutral-500">
               <p className="mr-4">公開日: {publish_date}</p>
               {isUpdated &&
