@@ -43,7 +43,7 @@ const BlogId: NextPage<Props> = ({
   const publish_date: string = format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})
   const updated_date: string = format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})
   
-  const isUpdated: Boolean = updated_date > publish_date
+  const isUpdated: boolean = updated_date > publish_date
 
   return (
     <>
