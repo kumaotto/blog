@@ -22,16 +22,25 @@ a {
 @layer base {
   .blogContent {
     h1 {
-      @apply text-3xl font-bold mt-8 mb-4 border-b-2 pb-2;
+      @apply text-3xl font-bold mt-8 mb-6 border-b-2 pb-2;
     }
     h2 {
-      @apply mb-0  text-xl sm:text-2xl font-bold;
+      @apply mb-4 mt-4 text-xl sm:text-2xl font-bold;
     }
     h3 {
       @apply text-xl sm:text-lg;
     }
     a {
       @apply text-blue-600
+    }
+    ol {
+      @apply ml-6 mt-6 list-disc
+    }
+    ul {
+      @apply ml-6 mt-6 list-decimal
+    }
+    p {
+      @apply leading-8
     }
   }
 }

@@ -4,6 +4,11 @@ export type Article = {
   title: string;
   category: Category;
   image: string;
+  eyecatch: {
+    "url": string,
+    "height": number,
+    "width": number
+  };
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -18,9 +23,3 @@ export type Category = {
   publishedAt: string;
   revisedAt: string;
 };
-
-export type Feed = {
-  title: string;
-  link: string;
-  isoDate: string;
-}
