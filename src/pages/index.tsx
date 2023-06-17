@@ -33,7 +33,7 @@ const Home = ({
                 <li key={blog.id} className="rounded-md border-2 py-2.5 mb-2">
                   <Link href={`/blog/${blog.id}`}>
                     <div className="text-left pl-3 sm:flex sm:items-center sm:justify-start sm:pl-5">
-                      <p className="pr-7 text-neutral-500">{format(new Date(blog.createdAt), 'yyyy年M月d日', {locale: ja})}</p>
+                      <p className="pr-7 text-neutral-500">{format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})}</p>
                       <p>{blog.title}</p>
                     </div>
                   </Link>
