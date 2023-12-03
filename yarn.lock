@@ -248,10 +248,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gtag.js@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "@types/gtag.js@npm:0.0.12"
-  checksum: fee8f4c6e627301b89ab616c9e219bd53fa6ea1ffd1d0a8021e21363f0bdb2cf7eb1a5bcda0c6f1502186379bc7784ec29c932e21634f4e07f9e7a8c56887400
+"@types/gtag.js@npm:^0.0.18":
+  version: 0.0.18
+  resolution: "@types/gtag.js@npm:0.0.18"
+  checksum: af7a0a5769c5cfbe75e47f2b0346a65db8234b3c89775b897681548dfb6898edb3145153e2bc5dd1751a5ace221e03e6a68b7650ecacc6aa16a099aa9d925c99
   languageName: node
   linkType: hard
 
@@ -2712,7 +2712,7 @@ __metadata:
   resolution: "my-app@workspace:."
   dependencies:
     "@next/eslint-plugin-next": "npm:^13.1.1"
-    "@types/gtag.js": "npm:^0.0.12"
+    "@types/gtag.js": "npm:^0.0.18"
     "@types/node": "npm:18.11.18"
     "@types/react": "npm:18.0.26"
     "@types/react-dom": "npm:18.0.10"

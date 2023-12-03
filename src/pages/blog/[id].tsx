@@ -70,7 +70,7 @@ const BlogId: NextPage<Props> = ({
               }
             </div>
             <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
-              {blog.category.name}
+              {blog.category?.name}
             </p>
 
             <div
