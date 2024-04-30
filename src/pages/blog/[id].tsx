@@ -9,13 +9,14 @@ import {
   NextPage,
 } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import React from "react";
 import { Suspense } from "react";
-import { Article } from "types/blog";
+import { MicroCMSArticle } from "types/MicroCmsBlog";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { contents } = await client.get({ endpoint: "blogs" });
 
-  const paths = contents.map((content: Article) => `/blog/${content.id}`);
+  const paths = contents.map((content: MicroCMSArticle) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
 
@@ -23,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   context
 ) => {
   const id = context.params?.id;
-  const data = await client.get<Article>({ endpoint: "blogs", contentId: id });
+  const data = await client.get<MicroCMSArticle>({ endpoint: "blogs", contentId: id });
 
   return {
     props: {
@@ -33,7 +34,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 };
 
 type Props = {
-  blog: Article;
+  blog: MicroCMSArticle;
 };
 
 const BlogId: NextPage<Props> = ({
@@ -43,7 +44,7 @@ const BlogId: NextPage<Props> = ({
   const publish_date: string = format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})
   const updated_date: string = format(new Date(blog.updatedAt), 'yyyy年M月d日', {locale: ja})
   
-  const isUpdated: Boolean = updated_date > publish_date
+  const isUpdated: boolean = updated_date > publish_date;
 
   return (
     <>
