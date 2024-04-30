@@ -1,6 +1,7 @@
 import { ContentWrapper } from "components/ContentWrapper";
 import { Avatar } from "components/image/Avatar";
 import { NextPage } from "next";
+import React from "react";
 
 const About: NextPage = () => {
   return (
@@ -18,6 +19,10 @@ const About: NextPage = () => {
               <br />
               <p className="w-fit mx-auto md:ml-0">Qualifications</p>
               <ul className="list-disc pl-5 text-left w-fit mx-auto sm:mx-0">
+                <li>2024 Apr. AWS Certified Machine Learning - Speciality</li>
+                <li>2024 Apr. AWS Certified Data Engineer - Associate</li>
+                <li>2024 Mar. AWS Certified Database - Speciality</li>
+                <li>2024 Feb. AWS Certified Data Analytics - Speciality</li>
                 <li>2023 Dec. AWS Certified DevOps Engineer - Professional</li>
                 <li>2023 Jun. AWS Certified SysOps Administrator - Associate</li>
                 <li>2023 Mar. AWS Certified Solutions Architect - Associate</li>
