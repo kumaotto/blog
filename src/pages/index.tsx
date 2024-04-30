@@ -6,7 +6,7 @@ import Loading from "components/common/Loading/Loading";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import React from "react";
-import { getCmsBlogAndNormalized, getZennBlogAndNormalized } from "../libs/client";
+import { getCmsBlogAndNormalized, getQiitaBlogAndNormalized, getZennBlogAndNormalized } from "../libs/client";
 import { CommonArticle } from "types/CommonBlog";
 
 type Props = {
@@ -26,7 +26,7 @@ export default function Home({
       case 'qiita':
         return '/images/qiita.svg';
       default:
-        return '/images/default-icon.svg';
+        return '/vercel.svg';
     }
   }
 
@@ -36,8 +36,8 @@ export default function Home({
         return `https://zenn.dev/kumao/articles/${blog.path}`;
       case 'microcms':
         return blog.path;
-      // case 'qiita':
-        // return `https://qiita.com/kumao/${blog.id}`;
+      case 'qiita':
+        return blog.path;
       default:
         return '/';
     }
@@ -76,14 +76,16 @@ export default function Home({
 };
 
 export const getStaticProps = async () => {
-  const [cmsArticles, zennArticles] = await Promise.all([
+  const [cmsArticles, zennArticles, qiitaArticles] = await Promise.all([
     getCmsBlogAndNormalized(),
-    getZennBlogAndNormalized()
+    getZennBlogAndNormalized(),
+    getQiitaBlogAndNormalized(),
   ]);
-  const articles = [...cmsArticles, ...zennArticles]
+  const articles = [...cmsArticles, ...zennArticles, ...qiitaArticles];
   
-  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()).slice(0, 5);
-  const latestArticles = articles.slice(0, 7)
+  // 最新7件を表示
+  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
+  const latestArticles = articles.slice(0, 7);
 
   return {
     props: {
