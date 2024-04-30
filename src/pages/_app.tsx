@@ -2,6 +2,7 @@ import Header from "components/header/Header";
 import Footer from "components/footer/Footer";
 import type { AppProps } from "next/app";
 import "../styles/globals.scss";
+import React from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
