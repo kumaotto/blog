@@ -1,6 +1,3 @@
-import type { InferGetStaticPropsType, NextPage } from "next";
-import { client } from "libs/client";
-import { Article, Category } from "types/blog";
 import Link from "next/link";
 import { Avatar } from "components/image/Avatar";
 import { ContentWrapper } from "components/ContentWrapper";
@@ -9,16 +6,43 @@ import Loading from "components/common/Loading/Loading";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import React from "react";
+import { getCmsBlogAndNormalized, getZennBlogAndNormalized } from "../libs/client";
+import { CommonArticle } from "types/CommonBlog";
 
 type Props = {
-  blogs: Article[];
-  categories: Category[];
+  blogs: any[];
 };
 
-const Home = ({
+export default function Home({
   blogs,
-  categories,
-}: Props) => {
+}: Props) {
+
+  const setIconImage = (icon: string) => {
+    switch (icon) {
+      case 'zenn':
+        return '/images/zenn.svg';
+      case 'microcms':
+        return '/images/book.svg';
+      case 'qiita':
+        return '/images/qiita.svg';
+      default:
+        return '/images/default-icon.svg';
+    }
+  }
+
+  const setLinkPath = (blog: CommonArticle) => {
+    switch (blog.icon) {
+      case 'zenn':
+        return `https://zenn.dev/kumao/articles/${blog.path}`;
+      case 'microcms':
+        return blog.path;
+      // case 'qiita':
+        // return `https://qiita.com/kumao/${blog.id}`;
+      default:
+        return '/';
+    }
+  }
+
   return (
     <>
       <ContentWrapper>
@@ -31,11 +55,12 @@ const Home = ({
             </h2>
             <Suspense fallback={<Loading />}>
               <ul className="mt-4">
-                {blogs.map((blog) => (
+                {blogs && blogs.map((blog) => (
                   <li key={blog.id} className="rounded-md border-2 py-2.5 mb-2">
-                    <Link href={`/blog/${blog.id}`}>
+                    <Link href={setLinkPath(blog)}>
                       <div className="text-left pl-3 sm:flex sm:items-center sm:justify-start sm:pl-5">
-                        <p className="pr-7 text-neutral-500">{format(new Date(blog.publishedAt), 'yyyy年M月d日', {locale: ja})}</p>
+                        <img src={setIconImage(blog.icon)} className="w-6 h-6 sm:mr-3" alt="icon"/>
+                        <p className="pr-7 text-neutral-500">{format(new Date(blog.publishedAt), 'yyyy/MM/dd', {locale: ja})}</p>
                         <p>{blog.title}</p>
                       </div>
                     </Link>
@@ -50,16 +75,22 @@ const Home = ({
   );
 };
 
-export default Home;
-
 export const getStaticProps = async () => {
-  const blog = await client.get({ endpoint: "blogs" });
-  const category = await client.get({ endpoint: "categories" });
+  const [cmsArticles, zennArticles] = await Promise.all([
+    getCmsBlogAndNormalized(),
+    getZennBlogAndNormalized()
+  ]);
+  const articles = [...cmsArticles, ...zennArticles]
+  
+  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()).slice(0, 5);
+  const latestArticles = articles.slice(0, 7)
 
   return {
     props: {
-      blogs: blog.contents,
-      categories: category.contents,
+      blogs: latestArticles.map(article => ({
+        ...article,
+        publishedAt: article.publishedAt.toISOString(),
+      })),
     },
   };
 };
