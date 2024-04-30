@@ -18,6 +18,8 @@ const About: NextPage = () => {
               <br />
               <p className="w-fit mx-auto md:ml-0">Qualifications</p>
               <ul className="list-disc pl-5 text-left w-fit mx-auto sm:mx-0">
+                <li>2023 Dec. AWS Certified DevOps Engineer - Professional</li>
+                <li>2023 Jun. AWS Certified SysOps Administrator - Associate</li>
                 <li>2023 Mar. AWS Certified Solutions Architect - Associate</li>
                 <li>2023 Feb. AWS Certified Cloud Practitioner</li>
                 <li>2022 Dec. 応用情報技術者試験</li>

@@ -50,7 +50,7 @@ const BlogId: NextPage<Props> = ({
     <>
       <Suspense fallback={<Loading />}>
         <ContentWrapper>
-          <main className="mb-20 sm:w-9/12 sm:mx-auto">
+          <main className="mb-20 sm:w-8/12 sm:mx-auto">
             {blog.eyecatch &&
               <img
                 src={blog.eyecatch.url}
@@ -71,7 +71,7 @@ const BlogId: NextPage<Props> = ({
               }
             </div>
             <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
-              {blog.category.name}
+              {blog.category?.name}
             </p>
 
             <div

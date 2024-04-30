@@ -14,6 +14,9 @@
     "lint": "next lint",
     "lint:fix": "yarn prettier:fix && yarn eslint:fix"
   },
+  "resolutions": {
+    "@types/react": "18.0.10"
+  },
   "dependencies": {
     "date-fns": "^2.30.0",
     "microcms-js-sdk": "^2.3.2",
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.1",
+    "@types/gtag.js": "^0.0.18",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
