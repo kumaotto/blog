@@ -1,47 +1,40 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "my-remix-app",
   "private": true,
+  "sideEffects": false,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:out": "next build && next export",
-    "start": "next start",
-    "prettier": "yarn lint:prettier",
-    "prettier:fix": "prettier --write --list-different .",
-    "eslint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "eslint:fix": "yarn eslint --fix",
-    "lint": "next lint",
-    "lint:fix": "yarn prettier:fix && yarn eslint:fix"
-  },
-  "resolutions": {
-    "@types/react": "18.0.10"
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "remix-serve ./build/server/index.js",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "date-fns": "^2.30.0",
-    "microcms-js-sdk": "^2.3.2",
-    "next": "^13.4.5",
+    "@remix-run/node": "^2.9.1",
+    "@remix-run/react": "^2.9.1",
+    "@remix-run/serve": "^2.9.1",
+    "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rss-parser": "^3.12.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.1.1",
-    "@types/gtag.js": "^0.0.18",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
-    "@typescript-eslint/eslint-plugin": "^5.48.0",
-    "@typescript-eslint/parser": "^5.48.0",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.31.0",
-    "eslint-config-next": "13.1.1",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.2",
-    "sass": "^1.62.1",
-    "tailwindcss": "^3.2.4",
-    "typescript": "4.9.4"
+    "@remix-run/dev": "^2.9.1",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "eslint": "^8.38.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.1.6",
+    "vite": "^5.1.0",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
