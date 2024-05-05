@@ -4,9 +4,12 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "build": "bunx --bun vite build",
+    "dev": "bunx --bun vite",
+    "lint:code": "biome lint ./",
+    "lint:style": "biome format ./",
+    "fix:style": "biome format --write ./",
+    "fix:code": "biome lint --apply ./",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
@@ -19,6 +22,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.2",
     "@pandacss/dev": "^0.39.0",
     "@remix-run/dev": "^2.9.1",
     "@types/react": "^18.2.20",
