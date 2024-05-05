@@ -11,6 +11,7 @@ export type MicroCMSArticle = {
     "height": number,
     "width": number
   };
+  body: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
