@@ -4,6 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "prepare": "panda codegen",
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "bunx @biomejs/biome lint --apply ./app/",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.2",
+    "@pandacss/dev": "^0.39.0",
     "@remix-run/dev": "^2.9.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
