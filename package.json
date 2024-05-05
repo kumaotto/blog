@@ -1,15 +1,12 @@
 {
-  "name": "my-remix-app",
+  "name": "mysite",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "bunx --bun vite build",
-    "dev": "bunx --bun vite",
-    "lint:code": "biome lint ./",
-    "lint:style": "biome format ./",
-    "fix:style": "biome format --write ./",
-    "fix:code": "biome lint --apply ./",
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
@@ -17,13 +14,11 @@
     "@remix-run/node": "^2.9.1",
     "@remix-run/react": "^2.9.1",
     "@remix-run/serve": "^2.9.1",
-    "isbot": "^4.4.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "isbot": "^4.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.2",
-    "@pandacss/dev": "^0.39.0",
     "@remix-run/dev": "^2.9.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
@@ -36,7 +31,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "^5.1.6",
-    "vite": "^5.2.11",
+    "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
