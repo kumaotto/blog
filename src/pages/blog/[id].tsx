@@ -1,8 +1,10 @@
 import { ContentWrapper } from "components/ContentWrapper";
 import Loading from "components/common/Loading/Loading";
+import { TableOfContents } from "components/common/TableOfContents/TableOfContents";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import { client } from "libs/client";
+import { renderToc } from "libs/render-toc";
 import {
   GetStaticPaths,
   GetStaticProps,
@@ -46,40 +48,45 @@ const BlogId: NextPage<Props> = ({
   
   const isUpdated: boolean = updated_date > publish_date;
 
+  const toc = renderToc(blog.content);
+
   return (
     <>
       <Suspense fallback={<Loading />}>
         <ContentWrapper>
-          <main className="mb-20 sm:w-8/12 sm:mx-auto">
-            {blog.eyecatch &&
-              <img
-                src={blog.eyecatch.url}
-                className="sm:mt-10 mt-5"
-                style={{
-                  width: '100%',
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
-                alt="ブログアイキャッチ画像"
-              />
-            }
-            <h1 className="text-4xl sm:mt-7 mt-5 mb-2 sm:mb-0">{blog.title}</h1>
-            <div className="sm:flex sm:mt-2 text-neutral-500">
-              <p className="mr-4">公開日: {publish_date}</p>
-              {isUpdated &&
-                <p>更新日: {updated_date}</p>
+          <main className="mb-20 sm:pt-20 sm:mx-auto sm:flex relative">
+            <TableOfContents toc={toc} />
+            <div className="">
+              {blog.eyecatch &&
+                <img
+                  src={blog.eyecatch.url}
+                  className=""
+                  style={{
+                    width: '100%',
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
+                  alt="ブログアイキャッチ画像"
+                />
               }
-            </div>
-            <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
-              {blog.category?.name}
-            </p>
+              <h1 className="text-4xl mt-5 mb-2 sm:mb-0">{blog.title}</h1>
+              <div className="sm:flex sm:mt-2 text-neutral-500">
+                <p className="mr-4">公開日: {publish_date}</p>
+                {isUpdated &&
+                  <p>更新日: {updated_date}</p>
+                }
+              </div>
+              <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
+                {blog.category?.name}
+              </p>
 
-            <div
-              className="blogContent mt-5"
-              dangerouslySetInnerHTML={{
-                __html: `${blog.content}`,
-              }}
-            />
+              <div
+                className="blogContent mt-5"
+                dangerouslySetInnerHTML={{
+                  __html: `${blog.content}`,
+                }}
+              />
+            </div>
           </main>
         </ContentWrapper>
       </Suspense>
