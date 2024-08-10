@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Avatar } from "components/image/Avatar";
-import { ContentWrapper } from "components/ContentWrapper";
+import { TopContentWrapper } from "components/TopContentWrapper";
 import { Suspense } from "react";
 import Loading from "components/common/Loading/Loading";
 import { format } from "date-fns";
@@ -45,7 +45,7 @@ export default function Home({
 
   return (
     <>
-      <ContentWrapper>
+      <TopContentWrapper>
         <div className="text-center pt-8">
           <h1 className="text-4xl mb-4 font-bold text-gray-800">kumaotto</h1>
           <Avatar/>
@@ -70,7 +70,7 @@ export default function Home({
             </Suspense>
           </div>
         </div>
-      </ContentWrapper>
+      </TopContentWrapper>
     </>
   );
 };
