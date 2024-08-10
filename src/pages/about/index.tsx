@@ -16,19 +16,15 @@ const About: NextPage = () => {
               <br />
               <p className="mb-2 w-fit mx-auto md:ml-0">Job: Web developer</p>
               <p className="mb-2 w-fit mx-auto md:ml-0">Skills: Python, Java, JavaScript, TypeScript</p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">Comments:</p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">　AWSで作るWebアプリケーション開発が一番得意です</p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">　アウトプット関連はフッターリンク参照</p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">　Speaker Deck: <a className="text-blue-500" href="https://speakerdeck.com/kumaotto">https://speakerdeck.com/kumaotto</a></p>
               <br />
               <p className="w-fit mx-auto md:ml-0">Qualifications</p>
               <ul className="list-disc pl-5 text-left w-fit mx-auto sm:mx-0">
-                <li>2024 Apr. AWS Certified Machine Learning - Speciality</li>
-                <li>2024 Apr. AWS Certified Data Engineer - Associate</li>
-                <li>2024 Mar. AWS Certified Database - Speciality</li>
-                <li>2024 Feb. AWS Certified Data Analytics - Speciality</li>
-                <li>2023 Dec. AWS Certified DevOps Engineer - Professional</li>
-                <li>2023 Jun. AWS Certified SysOps Administrator - Associate</li>
-                <li>2023 Mar. AWS Certified Solutions Architect - Associate</li>
-                <li>2023 Feb. AWS Certified Cloud Practitioner</li>
-                <li>2022 Dec. 応用情報技術者試験</li>
-                <li>2021 Aug. AWS Certified Developer - Associate</li>
+                <li>応用情報技術者試験</li>
+                <li>AWSはあと2つで全取得</li>
               </ul>
             </div>
           </div>
