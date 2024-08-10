@@ -17,9 +17,9 @@ const About: NextPage = () => {
               <p className="mb-2 w-fit mx-auto md:ml-0">Job: Web developer</p>
               <p className="mb-2 w-fit mx-auto md:ml-0">Skills: Python, Java, JavaScript, TypeScript</p>
               <p className="mb-2 w-fit mx-auto md:ml-0">Comments:</p>
-              <p className="mb-2 w-fit mx-auto md:ml-0">　AWSで作るWebアプリケーション開発が一番得意です</p>
-              <p className="mb-2 w-fit mx-auto md:ml-0">　アウトプット関連はフッターリンク参照</p>
-              <p className="mb-2 w-fit mx-auto md:ml-0">　Speaker Deck: <a className="text-blue-500" href="https://speakerdeck.com/kumaotto">https://speakerdeck.com/kumaotto</a></p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">  AWSで作るWebアプリケーション開発が一番得意です</p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">  アウトプット関連はフッターリンク参照</p>
+              <p className="mb-2 w-fit mx-auto md:ml-0">  Speaker Deck: <a className="text-blue-500" href="https://speakerdeck.com/kumaotto">https://speakerdeck.com/kumaotto</a></p>
               <br />
               <p className="w-fit mx-auto md:ml-0">Qualifications</p>
               <ul className="list-disc pl-5 text-left w-fit mx-auto sm:mx-0">
