@@ -7,6 +7,18 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from 'libs/gtag'
 
+export const metadata = {
+  openGraph: {
+    title: "こまきちブログ",
+    description: "こまきちの技術や日常ブログ",
+    images: [{
+      url: "/ogp.png",
+      width: 1200,
+      height: 630
+    }],
+  },
+};
+
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
 
   const router = useRouter()
