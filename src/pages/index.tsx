@@ -8,9 +8,22 @@ import { ja } from "date-fns/locale";
 import React from "react";
 import { getCmsBlogAndNormalized, getQiitaBlogAndNormalized, getZennBlogAndNormalized } from "../libs/client";
 import { CommonArticle } from "types/CommonBlog";
+import { Metadata } from "next";
 
 type Props = {
   blogs: any[];
+};
+
+export const metadata: Metadata = {
+  openGraph: {
+    title: "こまきちブログ",
+    description: "こまきちの技術や日常ブログ",
+    images: [{
+      url: "/ogp.png",
+      width: 1200,
+      height: 630
+    }],
+  },
 };
 
 export default function Home({
