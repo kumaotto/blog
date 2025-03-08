@@ -1,5 +1,5 @@
 // Cloudflare Pagesでapiを使用するための設定
-export const runtime = 'edge';
+export const runtime = 'experimental-edge';
 
 import { ContentWrapper } from "components/ContentWrapper";
 import Loading from "components/common/Loading/Loading";
