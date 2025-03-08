@@ -12,7 +12,7 @@ const fontPath = path.join(process.cwd(), 'public', 'fonts', 'NotoSansJP-Regular
 const fontData = fs.readFileSync(fontPath);
 
 // 背景画像取得
-const ogpImagePath = path.join(process.cwd(), 'public', 'ogp.png');
+const ogpImagePath = path.join(process.cwd(), 'public', '/images/ogp.png');
 const baseImageData = fs.readFileSync(ogpImagePath);
 const baseImageUrl = `data:image/png;base64,${baseImageData.toString('base64')}`;
 
