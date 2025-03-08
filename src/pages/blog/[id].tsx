@@ -82,6 +82,7 @@ const BlogId: NextPage<Props> = ({ blog }: Props) => {
         <meta property="og:url" content={`https://kumaotto.com/blog/${blog.id}`} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
+        <title>{blog.title} | komakichi</title>
       </Head>
       <Suspense fallback={<Loading />}>
         <ContentWrapper>
