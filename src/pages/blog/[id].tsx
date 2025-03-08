@@ -70,7 +70,7 @@ const BlogId: NextPage<Props> = ({ blog }: Props) => {
   const isUpdated = updated_date > publish_date;
   const toc = renderToc(blog.content);
 
-  const ogImageUrl = `https://your-domain.com/api/og?title=${encodeURIComponent(blog.title)}`;
+  const ogImageUrl = `https://kumaotto.com/api/og?title=${encodeURIComponent(blog.title)}`;
 
   return (
     <>
