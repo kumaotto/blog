@@ -5,11 +5,12 @@ import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import { client } from "libs/client";
 import { renderToc } from "libs/render-toc";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, Metadata, NextPage } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import React, { Suspense } from "react";
 import { MicroCMSArticle } from "types/MicroCmsBlog";
 import parse, { DOMNode, Element } from "html-react-parser";
+import Head from "next/head";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { contents } = await client.get({ endpoint: "blogs" });
@@ -69,36 +70,49 @@ const BlogId: NextPage<Props> = ({ blog }: Props) => {
   const isUpdated = updated_date > publish_date;
   const toc = renderToc(blog.content);
 
+  const ogImageUrl = `https://your-domain.com/api/og?title=${encodeURIComponent(blog.title)}`;
+
   return (
-    <Suspense fallback={<Loading />}>
-      <ContentWrapper>
-        <main className="mb-20 sm:pt-20 sm:mx-auto sm:flex relative">
-          <TableOfContents toc={toc} />
-          <div className="prose mx-auto my-0">
-            {blog.eyecatch && (
-              <img
-                src={blog.eyecatch.url}
-                alt="ブログアイキャッチ画像"
-              />
-            )}
-            <div>
-              <h1 className="text-4xl mt-5 mb-2 sm:mb-0">{blog.title}</h1>
-              <div className="sm:flex sm:mt-2 text-neutral-500">
-                <p className="mr-4">公開日: {publish_date}</p>
-                {isUpdated && <p>更新日: {updated_date}</p>}
+    <>
+      <Head>
+        <title>{blog.title}</title>
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:description" content='こまきちのブログ' />
+        <meta property="og:url" content={`https://kumaotto.com/blog/${blog.id}`} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+      <Suspense fallback={<Loading />}>
+        <ContentWrapper>
+          <main className="mb-20 sm:pt-20 sm:mx-auto sm:flex relative">
+            <TableOfContents toc={toc} />
+            <div className="prose mx-auto my-0">
+              {blog.eyecatch && (
+                <img
+                  src={blog.eyecatch.url}
+                  alt="ブログアイキャッチ画像"
+                />
+              )}
+              <div>
+                <h1 className="text-4xl mt-5 mb-2 sm:mb-0">{blog.title}</h1>
+                <div className="sm:flex sm:mt-2 text-neutral-500">
+                  <p className="mr-4">公開日: {publish_date}</p>
+                  {isUpdated && <p>更新日: {updated_date}</p>}
+                </div>
+                <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
+                  {blog.category?.name}
+                </p>
               </div>
-              <p className="mt-2 border-2 w-fit px-2 py-0.5 text-xs">
-                {blog.category?.name}
-              </p>
+              <article className="prose-indigo mx-auto my-0">
+                {/* ここで transformEmbedlySpeakerDeck を適用 */}
+                {parse(blog.content, { replace: transformEmbedlySpeakerDeck })}
+              </article>
             </div>
-            <article className="prose-indigo mx-auto my-0">
-              {/* ここで transformEmbedlySpeakerDeck を適用 */}
-              {parse(blog.content, { replace: transformEmbedlySpeakerDeck })}
-            </article>
-          </div>
-        </main>
-      </ContentWrapper>
-    </Suspense>
+          </main>
+        </ContentWrapper>
+      </Suspense>
+    </>
   );
 };
 

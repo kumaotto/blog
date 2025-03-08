@@ -8,16 +8,10 @@ import { ja } from "date-fns/locale";
 import React from "react";
 import { getCmsBlogAndNormalized, getQiitaBlogAndNormalized, getZennBlogAndNormalized } from "../libs/client";
 import { CommonArticle } from "types/CommonBlog";
-import { Metadata } from "next";
 
 type Props = {
   blogs: any[];
 };
-
-export const metadata: Metadata = {
-  title: "こまきちブログ",
-  description: "こまきちの技術や日常ブログ",
-}
 
 export default function Home({
   blogs,
