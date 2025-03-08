@@ -1,5 +1,5 @@
 // Cloudflare Pagesでapiを使用するための設定
-export const runtime = 'experimental-edge';
+export const runtime = 'edge';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import satori from 'satori';
