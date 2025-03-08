@@ -16,7 +16,7 @@ const Footer = () => {
             <Image src="/images/qiita.svg" alt="zenn" width={25} height={25} />
           </a>
         </div>
-        <p>©️ 2023 kumaotto. All Rights Reserved.</p>
+        <p>©️ 2025 komakichi. All Rights Reserved.</p>
       </div>
     </div>
   )
