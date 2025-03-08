@@ -74,7 +74,7 @@ const BlogId: NextPage<Props> = ({ blog }: Props) => {
       <ContentWrapper>
         <main className="mb-20 sm:pt-20 sm:mx-auto sm:flex relative">
           <TableOfContents toc={toc} />
-          <div className="prose">
+          <div className="prose mx-auto my-0">
             {blog.eyecatch && (
               <img
                 src={blog.eyecatch.url}
