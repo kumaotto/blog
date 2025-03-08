@@ -15,16 +15,9 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  openGraph: {
-    title: "こまきちブログ",
-    description: "こまきちの技術や日常ブログ",
-    images: [{
-      url: "/ogp.png",
-      width: 1200,
-      height: 630
-    }],
-  },
-};
+  title: "こまきちブログ",
+  description: "こまきちの技術や日常ブログ",
+}
 
 export default function Home({
   blogs,
